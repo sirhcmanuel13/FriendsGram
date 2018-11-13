@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FriendGram.PostPage">
+    <ContentView.Content>
+        <ListView x:Name="postList" IsGroupingEnabled="False" RowHeight="130">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame OutlineColor="Black" Padding="2" Margin="10, 0, 10, 10">
+                            <StackLayout VerticalOptions="StartAndExpand">
+                                <StackLayout Orientation="Horizontal">
+                                    <StackLayout VerticalOptions="CenterAndExpand">
+                                        <Image Source="{Binding ImageUrl}" HeightRequest="75" WidthRequest="75"></Image>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Vertical">
+                                        <Label Text="{Binding Title}" FontSize="16" FontAttributes="Bold"></Label>
+                                        <Label Text="{Binding Body}"></Label>
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentView.Content>
+</ContentView>
+
+<!--<AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+<StackLayout x:Name="listViewStackLayout" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
+    <ListView x:Name="commentList">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <TextCell Text="{Binding Email}" />
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</StackLayout>
+
+<StackLayout Padding="12"
+                 AbsoluteLayout.LayoutFlags="PositionProportional"
+                 AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1">
+    <ActivityIndicator x:Name="loadingIndicator" />
+</StackLayout>
+</AbsoluteLayout>-->
