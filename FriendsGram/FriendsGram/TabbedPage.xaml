@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FriendsGram.TabbedPage"
+             NavigationPage.HasBackButton="False"
+             NavigationPage.HasNavigationBar="false">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout VerticalOptions="Start"  HorizontalOptions="FillAndExpand" 
+                Orientation="Horizontal" Padding="10,5,10,5" BackgroundColor="#2196F3">
+                <Image HorizontalOptions="StartAndExpand" Source="logout.png" HeightRequest="45"  WidthRequest="45">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1"></TapGestureRecognizer>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label HorizontalOptions="CenterAndExpand" Text="POSTS" FontSize="30" />
+                <Image x:Name="addPost" HorizontalOptions="EndAndExpand" Source="plus.png" HeightRequest="45"  WidthRequest="45">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Add_Clicked"  NumberOfTapsRequired="1"></TapGestureRecognizer>
+                    </Image.GestureRecognizers>
+                </Image>
+            </StackLayout>
+            <StackLayout Padding="10, 0">
+                <Grid x:Name="gridTabButton" RowSpacing="0" ColumnSpacing="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="postButton" Text="Posts" Grid.Column="0" Grid.Row="0" Margin="0" Clicked="PostButton_Clicked"></Button>
+                    <Button x:Name="friendButton" Text="Friends" Grid.Column="1" Grid.Row="0" Margin="0" Clicked="FriendButton_Clicked"></Button>
+                </Grid>
+            </StackLayout>
+            <StackLayout VerticalOptions="FillAndExpand">
+                <ContentView x:Name="contentView" VerticalOptions="FillAndExpand"></ContentView>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
