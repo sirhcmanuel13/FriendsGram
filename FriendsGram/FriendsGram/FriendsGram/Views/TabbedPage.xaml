@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FriendsGram.TabbedPage"
+             NavigationPage.HasBackButton="False"
+             NavigationPage.HasNavigationBar="false"
+             x:Name="tabPage">
+
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="White">
+
+            <Frame 
+                HasShadow="True" 
+                HeightRequest="50"
+                Padding="0"
+                BorderColor="Black"
+                CornerRadius="0">
+                <StackLayout 
+                    VerticalOptions="Start"  
+                    HorizontalOptions="FillAndExpand" 
+                    Orientation="Horizontal" 
+                    Padding="10,5,10,5">
+                    <Image 
+                        HorizontalOptions="StartAndExpand" 
+                        Source="logout.png"
+                        HeightRequest="30" 
+                        WidthRequest="30">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer 
+                                Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1"></TapGestureRecognizer>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Label 
+                        x:Name="navTitlePosts"
+                        HorizontalOptions="CenterAndExpand"
+                        Text="POSTS" 
+                        FontSize="30"
+                        TextColor="Black" />
+                    <Label
+                        x:Name="navTitleFriends" 
+                        IsVisible="False" 
+                        HorizontalOptions="CenterAndExpand"
+                        Text="FRIENDS" 
+                        FontSize="30" 
+                        TextColor="Black"/>
+
+                    <Image 
+                        x:Name="addPost"
+                        HorizontalOptions="EndAndExpand"
+                        Source="plus.png" 
+                        HeightRequest="30" 
+                        WidthRequest="30">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Add_Clicked"  NumberOfTapsRequired="1"></TapGestureRecognizer>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </StackLayout>
+            </Frame>
+            <StackLayout Padding="0, 0" Margin="15,25,15,0">
+                <Grid x:Name="gridTabButton" RowSpacing="0" ColumnSpacing="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button 
+                        x:Name="postButton" 
+                        Text="Posts" 
+                        FontSize="25"
+                        Grid.Column="0" 
+                        Grid.Row="0" Margin="0" 
+                        Clicked="PostButton_Clicked" 
+                        HeightRequest="65" 
+                        BackgroundColor="White"
+                        BorderColor="Black" 
+                        BorderWidth="1"/>
+                    <Button 
+                        x:Name="friendButton" 
+                        Text="Friends" 
+                        FontSize="25"
+                        Grid.Column="1" 
+                        Grid.Row="0" 
+                        Margin="-2,0,0,0" 
+                        Clicked="FriendButton_Clicked" 
+                        HeightRequest="65" 
+                        BackgroundColor="White"
+                        BorderColor="Black" 
+                        BorderWidth="1"/>
+                </Grid>
+            </StackLayout>
+            <StackLayout VerticalOptions="FillAndExpand">
+                <ContentView x:Name="contentView" VerticalOptions="FillAndExpand"></ContentView>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

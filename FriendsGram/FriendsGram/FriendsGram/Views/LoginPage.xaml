@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FriendsGram.LoginPage"
+             NavigationPage.HasNavigationBar="false"
+             BackgroundColor="White">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout VerticalOptions="Start" Padding="10, 40, 10, 0">
+                <Image Source="https://randomuser.me/api/portraits/lego/0.jpg" HeightRequest="120" WidthRequest="120" Margin="0, 0, 0, 40" />
+                <Label x:Name="errorMessage" Text="Invalid Username and Password" TextColor="Red" HorizontalTextAlignment="Center" FontSize="16" />
+                <Entry x:Name="usernameEntry" Placeholder="Username" />
+                <Entry x:Name="passwordEntry" Placeholder="Password" IsPassword="True" />
+                <Button 
+                    Text="Sign IN" 
+                    FontSize="18"
+                    Clicked="Signin_Clicked" />
+            </StackLayout>
+            <StackLayout VerticalOptions="EndAndExpand">
+                <Label Text="Version 1.0.0" FontSize="12" HorizontalOptions="Center" Margin="0,0,0,30"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

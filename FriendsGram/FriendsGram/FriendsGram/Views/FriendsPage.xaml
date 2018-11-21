@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FriendsGram.FriendsPage"
+             BackgroundColor="white">
+    
+    <StackLayout>
+        <StackLayout x:Name="AIndicatorLayout"
+            HorizontalOptions="CenterAndExpand"
+            VerticalOptions="CenterAndExpand">
+        <ActivityIndicator x:Name="AIndicator"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="CenterAndExpand"/>
+            <Label Text="Loading.."
+                   TextColor="Black"/>
+        </StackLayout>
+
+        <ListView x:Name="ListView1"
+                      HorizontalOptions="FillAndExpand"
+                      VerticalOptions="FillAndExpand"
+                      RowHeight="100"
+                      Margin="20,20,20,0"
+                      SeparatorVisibility="None"
+                      ItemTapped="ListView1_ItemTapped"
+                      ItemSelected="ListView1_ItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame BorderColor="Black"
+                               OutlineColor="Black"
+                               Margin="5">
+                            <StackLayout Orientation="Horizontal"                                         
+                                         HeightRequest="90">
+                                <Image Source="{Binding UserImage}" 
+                                       WidthRequest="75"
+                                       Margin="0,0,5,0"/>
+                                <StackLayout HorizontalOptions="StartAndExpand">
+                                    <Label Text="{Binding Name}"
+                                           FontAttributes="Bold" 
+                                           FontSize="22" 
+                                           TextColor="Black"/>
+                                    <Label Text="{Binding UsernameFormat}"
+                                           FontAttributes="Italic"
+                                           FontSize="15" 
+                                           Margin="0,-10,0,0"/>
+                                </StackLayout>
+                                <Button HorizontalOptions="EndAndExpand"
+                                        BackgroundColor="Transparent"
+                                        Image="arrow.png"                                           
+                                        Padding="10,0,0,0"
+                                        HeightRequest="65"
+                                        WidthRequest="35"/>
+                                </StackLayout>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentView>

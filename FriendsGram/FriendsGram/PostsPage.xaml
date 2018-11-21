@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView x:Name="postPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:FriendsGram.Models; assembly=FriendsGram.Models"
+             x:Class="FriendsGram.PostsPage">
+    <ContentView.Content>
+        <AbsoluteLayout>
+            <StackLayout BackgroundColor="#FAFAFA" Margin="10, 0, 10, 0" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <Label Text="{Binding Path=Id}"></Label>
+                <ListView   x:Name="listView" 
+                    RowHeight="132"
+                    HasUnevenRows="True"
+                    SeparatorVisibility="None"
+                    HorizontalOptions="FillAndExpand" 
+                    VerticalOptions="FillAndExpand"
+                    IsPullToRefreshEnabled="true"
+                    Refreshing="listView_Refreshing">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame BorderColor="Black" 
+                                    OutlineColor="Black" 
+                                    CornerRadius="0"                               
+                                    HasShadow="False" 
+                                    Padding="15" 
+                                    Margin="0,10,0,0">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Image Source="{Binding Image}" WidthRequest="75" Margin="0,0,5,0"/>
+                                        <StackLayout HorizontalOptions="StartAndExpand">
+                                            <Label LineBreakMode="NoWrap" Text="{Binding Title}" FontAttributes="Bold" FontSize="22" TextColor="Black"/>
+                                            <Label LineBreakMode="NoWrap" Text="{Binding Body}" FontSize="13" />
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+
+            <ActivityIndicator 
+                AbsoluteLayout.LayoutBounds="0.5,0.5"
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                IsRunning="{Binding Source={x:Reference postPage}, Path=IsBusy}"/>
+
+        </AbsoluteLayout>
+    </ContentView.Content>
+</ContentView>
