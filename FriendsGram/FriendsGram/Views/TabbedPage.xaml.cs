@@ -20,9 +20,7 @@ namespace FriendsGram
         {
             InitializeComponent();    
             contentView.Content = postsPage;
-            postButton.IsEnabled = false;
-
-        
+            postButton.IsEnabled = false;        
         }
 
         private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
@@ -53,7 +51,6 @@ namespace FriendsGram
             addPost.IsEnabled = true;
             navTitlePosts.IsVisible = true;
             navTitleFriends.IsVisible = false;
-
         }
 
         private async void Add_Clicked(object sender, EventArgs e)

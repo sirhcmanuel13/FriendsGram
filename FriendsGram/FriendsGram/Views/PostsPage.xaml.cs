@@ -28,8 +28,6 @@ namespace FriendsGram
             AIndicatorLayout.IsVisible = true;
             BindingContext = postViewModel = new PostViewModel();
             postViewModel.IsBusy = true;
-            //Device.BeginInvokeOnMainThread(() => this.listView.ItemsSource = postViewModel.Posts);
-
             Device.BeginInvokeOnMainThread(() =>
             {
                 listView.ItemsSource = postViewModel.Posts;
@@ -48,7 +46,6 @@ namespace FriendsGram
             listView.ItemsSource = postViewModel.Posts;
             listView.IsRefreshing = false;
             listView.EndRefresh();
-
         }
 
         private void listView_ItemSelected(object sender, SelectedItemChangedEventArgs e)

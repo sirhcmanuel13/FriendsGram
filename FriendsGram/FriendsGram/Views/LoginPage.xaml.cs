@@ -18,12 +18,6 @@ namespace FriendsGram
 			InitializeComponent();
 			app = Application.Current;
 			errorMessage.IsVisible = false;
-   //         var a = app.Properties.ContainsKey("isLoggedIn");
-
-   //         if (app.Properties.ContainsKey("isLoggedIn"))
-			//{
-			//	Navigation.PushModalAsync(new TabbedPage());
-			//}
 		}
 
 
@@ -35,7 +29,6 @@ namespace FriendsGram
 				app.Properties["isLoggedIn"] = "true";
                 await app.SavePropertiesAsync();
                 Navigation.InsertPageBefore(new TabbedPage(), this);
-                //await Navigation.PushModalAsync(new TabbedPage());
                 await Navigation.PopAsync();
 			}
 			else

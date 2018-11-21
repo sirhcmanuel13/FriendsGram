@@ -34,16 +34,6 @@ namespace FriendsGram
             });
 		}
 
-		//private void RemoveListviewHighlight()
-		//{
-		//	listView1.ItemTapped += (object sender, ItemTappedEventArgs e) =>
-		//	{
-		//		if (e.Item == null) return;
-
-		//		if (sender is ListView lv) lv.SelectedItem = null;
-		//	};
-		//}
-
         private void ListView1_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             ListView1.SelectedItem = null;

@@ -39,7 +39,6 @@ namespace FriendsGram.ViewModels
             }
             set
             {
-                value = FriendsList;
                 OnPropertyChanged();
             }
         }
@@ -53,7 +52,6 @@ namespace FriendsGram.ViewModels
             set
             {
 
-                value = _friendPosts;
                 OnPropertyChanged();
             }
         }
