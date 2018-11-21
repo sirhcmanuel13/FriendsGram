@@ -21,11 +21,9 @@ namespace FriendsGram.ViewModels
 
         public PostViewModel()
         {
-
             _posts = new ObservableCollection<Post>();
             postService = new PostService();
-            Posts = Task.Run(async () =>    Posts = await postService.GetPosts()).Result;
-          
+            _posts = Task.Run(async () =>  await postService.GetPosts()).Result;         
         }
 
         public ObservableCollection<Post> Posts
@@ -41,9 +39,18 @@ namespace FriendsGram.ViewModels
             }
         }
 
-        public bool IsBusy { get; set; }
-
-
+        private bool _isBusy;
+        public bool IsBusy {
+            get
+            {
+                return _isBusy;
+            }           
+            set
+            {
+                _isBusy = value;
+                OnPropertyChanged();
+            }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 

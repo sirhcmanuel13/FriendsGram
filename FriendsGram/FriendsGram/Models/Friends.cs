@@ -16,15 +16,26 @@ namespace FriendsGram.Model
                 return string.Format($"{Name}{Environment.NewLine}@{Username}");
             }
         }
+        public string UsernameFormat
+        {
+            get
+            {
+                return string.Format($"@{Username}");
+            }
+        }
         public string Email { get; set; }
         public string Phone { get; set; }
         public string Website { get; set; }
         public string UserImage { get; set; }
-        //{
-        //    get
-        //    {
-        //       return string.Format("https://randomuser.me/api/portraits/lego/0.jpg");
-        //    }
-        //}
+
+        public string Firstname
+        {
+            get
+            {
+                var firstname = Name.Split(' ');
+
+                return string.Format("{0}",firstname[0].ToUpper());
+            }
+        }
     }
 }

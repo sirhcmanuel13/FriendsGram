@@ -49,7 +49,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="3.1.0.697729" />
     <PackageReference Include="Xamarin.Android.Support.Design" Version="25.4.0.2" />
     <PackageReference Include="Xamarin.Android.Support.v7.AppCompat" Version="25.4.0.2" />
     <PackageReference Include="Xamarin.Android.Support.v4" Version="25.4.0.2" />
@@ -62,6 +61,16 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidAsset Include="Assets\Montserrat-Regular.ttf" />
+    <AndroidAsset Include="Assets\Starlight Personal.ttf" />
+    <AndroidAsset Include="Assets\Photographs.ttf" />
+    <AndroidAsset Include="Assets\YunusH.ttf" />
+    <AndroidAsset Include="Assets\Boogaloo-Regular.ttf" />
+    <AndroidAsset Include="Assets\Archivo-Regular.ttf" />
+    <AndroidAsset Include="Assets\Archivo-Bold.ttf" />
+    <AndroidAsset Include="Assets\PatrickHand-Regular.ttf" />
+    <AndroidAsset Include="Assets\Assistant-Bold.ttf" />
+    <AndroidAsset Include="Assets\Assistant-Regular.ttf" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />

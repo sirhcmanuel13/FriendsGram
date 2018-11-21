@@ -10,11 +10,18 @@ namespace FriendsGram
 		public App()
 		{
 			InitializeComponent();
+            if (this.Properties.ContainsKey("isLoggedIn"))
+            {
+                MainPage = new NavigationPage(new TabbedPage());
 
-			MainPage = new NavigationPage(new LoginPage());
-		}
+            }
+            else
+            {
+                MainPage = new NavigationPage(new LoginPage());
+            }
+        }
 
-		protected override void OnStart()
+        protected override void OnStart()
 		{
 			// Handle when your app starts
 		}
