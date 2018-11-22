@@ -18,6 +18,7 @@ namespace FriendsGram.Services
     public class FriendService
     {
 
+
         public async Task<ObservableCollection<Friends>> GetFriends()
         {
             try
@@ -27,7 +28,7 @@ namespace FriendsGram.Services
                     var urlString = "https://jsonplaceholder.typicode.com/users";
                     var response = await client.GetAsync(urlString);
                     var friends = JsonConvert.DeserializeObject<ObservableCollection<Friends>>(response.Content.ReadAsStringAsync().Result);
-                    friends.ForEach(x => x.UserImage = (string.Format("https://randomuser.me/api/portraits/lego/{0}.jpg", x.Id - 1)));
+                   // friends.ForEach(x => x.UserImage = (string.Format("https://randomuser.me/api/portraits/lego/{0}.jpg", x.Id - 1)));
 
                     return friends;
                 }
@@ -45,11 +46,7 @@ namespace FriendsGram.Services
             {
                 using (var client = new HttpClient())
                 {
-                   //var urlString = "https://jsonplaceholder.typicode.com/posts";
-                    //var response = await client.GetAsync(urlString);
-                    //var posts = JsonConvert.DeserializeObject<ObservableCollection<Post>>(response.Content.ReadAsStringAsync().Result);
                     var postsWithSameId = postViewModel.Posts.Where(x => x.UserId == friends.Id).ToList();
-                    postsWithSameId.ForEach(x => x.Image = (string.Format("https://randomuser.me/api/portraits/lego/{0}.jpg",friends.Id-1)));
                     var friendPosts = new ObservableCollection<Post>(postsWithSameId);
                     return friendPosts;
                 }

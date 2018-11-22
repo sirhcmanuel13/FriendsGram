@@ -12,7 +12,7 @@ using Xamarin.Forms;
 
 namespace FriendsGram.ViewModels
 {
-    public class PostViewModel : INotifyPropertyChanged
+    public class PostViewModel : BaseViewModel
     {
 
         PostService postService;
@@ -36,13 +36,6 @@ namespace FriendsGram.ViewModels
             {
                 OnPropertyChanged();
             }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        void OnPropertyChanged([CallerMemberName] string name = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
     }
 }

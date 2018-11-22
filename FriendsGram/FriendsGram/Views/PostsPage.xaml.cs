@@ -27,7 +27,6 @@ namespace FriendsGram
             AIndicator.IsRunning = true;
             AIndicatorLayout.IsVisible = true;
             BindingContext = postViewModel = new PostViewModel();
-            postViewModel.IsBusy = true;
             Device.BeginInvokeOnMainThread(() =>
             {
                 listView.ItemsSource = postViewModel.Posts;

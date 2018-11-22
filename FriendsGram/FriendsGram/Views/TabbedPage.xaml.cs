@@ -1,6 +1,8 @@
 ﻿using FriendsGram.Services;
+using FriendsGram.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +15,7 @@ namespace FriendsGram
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class TabbedPage : ContentPage
 	{
-
+        
         PostService postService = new PostService();
         PostsPage postsPage = new PostsPage();
         public TabbedPage()
@@ -52,10 +54,15 @@ namespace FriendsGram
             navTitlePosts.IsVisible = true;
             navTitleFriends.IsVisible = false;
         }
+        public bool hasSelected = false;
 
         private async void Add_Clicked(object sender, EventArgs e)
-		{
-			await Navigation.PushModalAsync(new AddPostPage(postsPage));
-		}
-	}
+        {
+            if (hasSelected == false)
+            {
+                hasSelected = true;
+                await Navigation.PushModalAsync(new AddPostPage(postsPage,this));
+            }
+        }
+    }
 }

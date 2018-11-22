@@ -19,28 +19,23 @@ namespace FriendsGram.Services
         private HttpClient http;
         public async Task<ObservableCollection<Post>> GetPosts()
         {
-            try {
+            try
+            {
                 using (http = new HttpClient())
                 {
                     var urlString = "https://jsonplaceholder.typicode.com/posts";
                     var response = await http.GetAsync(urlString);
                     var x = response.GetType();
                     var posts = JsonConvert.DeserializeObject<ObservableCollection<Post>>(response.Content.ReadAsStringAsync().Result);
-
-                    foreach (var i in posts)
-                    {
-                        i.Title = i.Title.ToUpper();
-                        i.Image = string.Format("https://randomuser.me/api/portraits/lego/{0}.jpg", i.UserId - 1);
-                    }
                     return posts;
                 }
-            }catch(Exception e)
+            }
+            catch (Exception e)
             {
-                Debug.WriteLine(e);
+                Debug.WriteLine(e.InnerException.Message);
                 return null;
             }
-         }
-       
+        }
     }
 }
 

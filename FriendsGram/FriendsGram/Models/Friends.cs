@@ -6,7 +6,19 @@ namespace FriendsGram.Model
 {
     public class Friends
     {
-        public int Id { get; set; }
+        int id;
+        public int Id
+        {
+            get
+            {
+                return id;
+            }
+            set
+            {
+                id = value;
+                userImage = string.Format("https://randomuser.me/api/portraits/lego/{0}.jpg", id - 1);
+            }
+        }
         public string Name { get; set; }
         public string Username { get; set; }
         public string NameAndUsername
@@ -26,7 +38,15 @@ namespace FriendsGram.Model
         public string Email { get; set; }
         public string Phone { get; set; }
         public string Website { get; set; }
-        public string UserImage { get; set; }
+
+        string userImage;
+        public string UserImage
+        {
+            get
+            {
+                return userImage;
+            }
+        }
 
         public string Firstname
         {

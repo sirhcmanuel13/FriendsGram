@@ -7,11 +7,31 @@ namespace FriendsGram.Models
 {
     public class Post
     {
-        public int UserId { get; set; }
+        int userId;
+        public int UserId
+        {
+            get
+            {
+                return userId;
+            }
+            set
+            {
+                userId = value;
+                image = string.Format("https://randomuser.me/api/portraits/lego/{0}.jpg", userId - 1);
+            }
+        }
         public int Id { get; set; }
+        
         public string Title { get; set; }
         public string Body { get; set; }
-        public string Image { get; set; }
+
+        string image;
+        public string Image {
+            get
+            {
+                return image;
+            }
+        }
 
     }
 }

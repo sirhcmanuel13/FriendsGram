@@ -17,18 +17,20 @@ namespace FriendsGram
 	{
         Post posts;
         PostsPage postPage;
-        public AddPostPage (PostsPage postPage)
+        TabbedPage tabbedPage;
+        public AddPostPage (PostsPage postPage,TabbedPage tabbedPage)
 		{
 			InitializeComponent();
             this.postPage = postPage;
             BindingContext = postPage;
+            this.tabbedPage = tabbedPage;
         }
    
         private async void Save_Clicked(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(Title.Text) && (string.IsNullOrEmpty(Body.Text)))
+            if (string.IsNullOrEmpty(Title.Text) || (string.IsNullOrEmpty(Body.Text)))
             {
-                DisplayAlert("MESSAGE", "Fill up the blank fields!", "OK");
+               await DisplayAlert("MESSAGE", "Fill up the blank fields!", "OK");
             }
             else
             {
@@ -36,7 +38,7 @@ namespace FriendsGram
                 {
                     Title = this.Title.Text.ToUpper(),
                     Body = this.Body.Text,
-                    Image = "https://randomuser.me/api/portraits/lego/0.jpg",
+                    //Image = "https://randomuser.me/api/portraits/lego/0.jpg",
                     UserId = 1
                     
                 };
@@ -48,6 +50,7 @@ namespace FriendsGram
         async void buttonCancel_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopModalAsync();
+            tabbedPage.hasSelected = false;
         }
     }
 }

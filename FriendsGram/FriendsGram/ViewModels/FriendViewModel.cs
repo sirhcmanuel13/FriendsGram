@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace FriendsGram.ViewModels
 {
-    public class FriendViewModel : INotifyPropertyChanged
+    public class FriendViewModel : BaseViewModel
     {
         FriendService friendService;
         PostViewModel postViewModel;
@@ -51,16 +51,8 @@ namespace FriendsGram.ViewModels
             }
             set
             {
-
                 OnPropertyChanged();
             }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        void OnPropertyChanged([CallerMemberName] string name = "")
-        {
-            PropertyChanged.Invoke(this, new PropertyChangedEventArgs(name));
         }
     }
 }
