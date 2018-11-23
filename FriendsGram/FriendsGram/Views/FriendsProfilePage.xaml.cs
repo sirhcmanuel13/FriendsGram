@@ -37,6 +37,7 @@ namespace FriendsGram
 
         private async void buttonBack_Clicked(object sender, EventArgs e)
         {
+            friendViewModel.HasSelected = false;
             await Navigation.PopModalAsync();
         }
 

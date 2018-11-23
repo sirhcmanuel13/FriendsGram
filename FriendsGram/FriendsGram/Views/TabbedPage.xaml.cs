@@ -61,6 +61,7 @@ namespace FriendsGram
             if (hasSelected == false)
             {
                 hasSelected = true;
+                
                 await Navigation.PushModalAsync(new AddPostPage(postsPage,this));
             }
         }

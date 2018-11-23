@@ -28,9 +28,8 @@ namespace FriendsGram.Services
                     var urlString = "https://jsonplaceholder.typicode.com/users";
                     var response = await client.GetAsync(urlString);
                     var friends = JsonConvert.DeserializeObject<ObservableCollection<Friends>>(response.Content.ReadAsStringAsync().Result);
-                   // friends.ForEach(x => x.UserImage = (string.Format("https://randomuser.me/api/portraits/lego/{0}.jpg", x.Id - 1)));
-
-                    return friends;
+                    var toAscending = friends.OrderBy(x => x.Name);
+                    return new ObservableCollection<Friends>(toAscending);
                 }
             }
             catch (Exception ex)

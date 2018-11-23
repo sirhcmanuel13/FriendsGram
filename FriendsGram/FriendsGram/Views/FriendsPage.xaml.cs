@@ -38,15 +38,21 @@ namespace FriendsGram
         {
             ListView1.SelectedItem = null;
         }
-        public bool hasSelected = false;
         private async void ListView1_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            if (hasSelected == false)
+            var profile = e.Item as Friends;
+            friendViewModel = new FriendViewModel(profile, postViewModel);
+            try
             {
-                hasSelected = true;
-                var profile = e.Item as Friends;
-                friendViewModel = new FriendViewModel(profile, postViewModel);
-                await Navigation.PushModalAsync(new FriendsProfilePage(friendViewModel));
+                if (friendViewModel.HasSelected == false)
+                {
+                    friendViewModel.HasSelected = true;
+                    await Navigation.PushModalAsync(new FriendsProfilePage(friendViewModel));
+                }
+            }
+            catch (Exception ee)
+            {
+                Debug.WriteLine(ee.InnerException.Message);
             }
         }
     }

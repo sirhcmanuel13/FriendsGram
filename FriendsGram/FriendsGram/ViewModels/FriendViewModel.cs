@@ -54,5 +54,7 @@ namespace FriendsGram.ViewModels
                 OnPropertyChanged();
             }
         }
+
+        public bool HasSelected { get; set; }
     }
 }
